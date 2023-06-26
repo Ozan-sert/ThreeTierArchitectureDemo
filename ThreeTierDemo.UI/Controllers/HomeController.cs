@@ -6,9 +6,9 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ThreeTierDemo.UI.Models;
+using ThreeTierDemo.BLL.Models;
 using ThreeTierDemo.BLL.Services;
-using ThreeTierDemo.DAL.Entities;
+
 
 namespace ThreeTierDemo.UI.Controllers
 {
@@ -41,7 +41,7 @@ namespace ThreeTierDemo.UI.Controllers
 
         public ActionResult ListUsers()
         {
-            List<User> userList = UserService.GetAllUsers();
+            List<UserViewModel> userList = UserService.GetAllUsers();
 
 
             return View(userList);

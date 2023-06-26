@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ThreeTierDemo.DAL.Repositories;
 using ThreeTierDemo.DAL;
 using ThreeTierDemo.DAL.Entities;
+using ThreeTierDemo.BLL.Models;
 
 namespace ThreeTierDemo.BLL.Services
 {
@@ -26,9 +27,21 @@ namespace ThreeTierDemo.BLL.Services
             userDataAccess.InsertUser(new User {Username=username, Email=email, Password=password});        
           
         }
-        public List<User> GetAllUsers()
+        public List<UserViewModel> GetAllUsers()
         {
-            return userDataAccess.GetAllUsers();
+            List<UserViewModel> users = new List<UserViewModel>();
+
+            foreach (var userModel in userDataAccess.GetAllUsers())
+            {
+                UserViewModel user = new UserViewModel();
+                user.ID = userModel.ID;
+                user.Username = userModel.Username;
+                user.Email = userModel.Email;
+                user.Password = userModel.Password;
+                users.Add(user);
+
+            }
+            return users;
         }
     }
 }

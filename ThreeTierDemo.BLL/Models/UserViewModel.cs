@@ -5,14 +5,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
-namespace ThreeTierDemo.UI.Models
+namespace ThreeTierDemo.BLL.Models
 {
     public class UserViewModel
     {
         public int ID { get; set; }
 
         [DisplayName("Your Profile Pic:")]
-        [Required(ErrorMessage = "Username is required.")]
+        [Required(ErrorMessage = "Profile Pic is required.")]
         public string PictureUrl { get; set; }
 
         [DisplayName("UserName:")]

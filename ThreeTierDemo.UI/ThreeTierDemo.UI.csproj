@@ -124,7 +124,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -212,10 +211,6 @@
     <ProjectReference Include="..\ThreeTierDemo.BLL\ThreeTierDemo.BLL.csproj">
       <Project>{82fd8c45-095f-497d-bb82-9cb31d7713cb}</Project>
       <Name>ThreeTierDemo.BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ThreeTierDemo.DAL\ThreeTierDemo.DAL.csproj">
-      <Project>{FCEE6381-3AD2-4C4B-8218-E9F09466ABF4}</Project>
-      <Name>ThreeTierDemo.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
