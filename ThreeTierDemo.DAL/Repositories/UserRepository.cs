@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,18 +12,18 @@ namespace ThreeTierDemo.DAL.Repositories
 {
     public class UserRepository
     {
+   
+            private readonly string connectionString;
 
-            private readonly DBContext databaseContext;
-
-            public UserRepository(DBContext databaseContext)
+            public UserRepository()
             {
-                this.databaseContext = databaseContext;
+            connectionString = ConfigurationManager.ConnectionStrings["myDBConnection"].ConnectionString; 
             }
 
             public void InsertUser(User user)
             {
-                using (var connection = databaseContext.GetSqlConnection())
-                {
+            using (var connection = new SqlConnection(connectionString))
+            {
                 connection.Open();
 
                 SqlCommand cmd = connection.CreateCommand();
@@ -35,8 +36,8 @@ namespace ThreeTierDemo.DAL.Repositories
                 cmd.ExecuteNonQuery();
                 connection.Close();
 
-             
-                }
+
+            }
             }
 
             public List<User> GetAllUsers()
@@ -44,7 +45,7 @@ namespace ThreeTierDemo.DAL.Repositories
                 List<User> users = new List<User>();
                 DataTable dt = new DataTable();
 
-                using (var connection = databaseContext.GetSqlConnection())
+                using (var connection = new SqlConnection(connectionString))
                 {
                  
                     connection.Open();

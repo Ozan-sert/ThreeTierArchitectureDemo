@@ -15,9 +15,9 @@ namespace ThreeTierDemo.UI.Controllers
      
     public class HomeController : Controller
     {
-        static readonly string connString = ConfigurationManager.ConnectionStrings["myDBConnection"].ConnectionString;
+        
 
-        public UserService UserService = new UserService(connString);
+        public UserService UserService = new UserService();
         public ActionResult Index()
         {
             return View();

@@ -15,10 +15,10 @@ namespace ThreeTierDemo.BLL.Services
         private readonly UserRepository userDataAccess;
         
 
-        public UserService(string connectionString)
+        public UserService()
         {
 
-            userDataAccess = new UserRepository(new DBContext(connectionString));
+            userDataAccess = new UserRepository();
         }
 
         public void RegisterUser(string username, string email, string password)
